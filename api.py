@@ -84,13 +84,7 @@ def fetch_article_list(url: str, cookie_path: Path) -> Dict[str, Any]:
     data = data["data"]
     articles = data.get("articles", [])
     author = data.get("author", {})["name"]
-    title = (
-        data.get("title")
-        or data.get("name")
-        or data.get("readlist_title")
-        or data.get("readlist_name")
-        or f"readlist_{readlist_id}"
-    )
+    title = (data.get("list") or {}).get("name") or f"readlist_{readlist_id}"
 
     return {
         "url": url,

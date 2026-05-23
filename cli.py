@@ -73,7 +73,7 @@ def merge_articles_to_file(
         TextColumn("{task.completed}/{task.total}"),
         console=console,
     ) as progress:
-        task = progress.add_task("正在下载文章内容…", total=len(selected_articles))
+        task = progress.add_task("正在下载文章内容", total=len(selected_articles))
         for article in selected_articles:
             try:
                 content = fetch_article_content(article["id"], cookie_path)

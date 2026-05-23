@@ -28,7 +28,7 @@ while True:
     )
     display_article_list(articles)
 
-    selection = Prompt.ask(f"输入要合并的序号范围(1-{total})", default="")
+    selection = Prompt.ask("输入要合并的序号范围", default=f"1-{total}")
     indices = parse_selection_input(selection, len(articles))
     if not indices:
         console.print("[yellow]已取消[/yellow]")
